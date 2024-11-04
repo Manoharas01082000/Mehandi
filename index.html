@@ -10,7 +10,7 @@
 <body>
 
     <!-- Navigation Bar -->
-    <nav>
+    <nav id="navbar">
         <ul>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#services">Services</a></li>
@@ -39,7 +39,30 @@
                 <img src="image_7.jpeg" alt="Mehendi Design 5">
                 <img src="image_8.jpeg" alt="Mehendi Design 5">
                 <img src="image_9.jpeg" alt="Mehendi Design 5">
+                <img src="image_10.jpeg" alt="Mehendi Design 5">
+                <img src="image_11.jpeg" alt="Mehendi Design 5">
+                <img src="image_12.jpeg" alt="Mehendi Design 5">
+                <img src="image_13.jpeg" alt="Mehendi Design 5">
+                <img src="image_14.jpeg" alt="Mehendi Design 5">
+                <img src="image_15.jpeg" alt="Mehendi Design 5">
+                <img src="image_16.jpeg" alt="Mehendi Design 5">
                 <!-- Add more images as needed -->
+                <img src="image_1.jpeg" alt="Mehendi Design 1">
+                <img src="image_2.jpeg" alt="Mehendi Design 2">
+                <img src="image_3.jpeg" alt="Mehendi Design 3">
+                <img src="image_4.jpeg" alt="Mehendi Design 4">
+                <img src="image_5.jpeg" alt="Mehendi Design 5">
+                <img src="image_6.jpeg" alt="Mehendi Design 5">
+                <img src="image_7.jpeg" alt="Mehendi Design 5">
+                <img src="image_8.jpeg" alt="Mehendi Design 5">
+                <img src="image_9.jpeg" alt="Mehendi Design 5">
+                <img src="image_10.jpeg" alt="Mehendi Design 5">
+                <img src="image_11.jpeg" alt="Mehendi Design 5">
+                <img src="image_12.jpeg" alt="Mehendi Design 5">
+                <img src="image_13.jpeg" alt="Mehendi Design 5">
+                <img src="image_14.jpeg" alt="Mehendi Design 5">
+                <img src="image_15.jpeg" alt="Mehendi Design 5">
+                <img src="image_16.jpeg" alt="Mehendi Design 5">
             </div>
         </div>
     </section>    
@@ -87,6 +110,17 @@
     <footer>
         <p>&copy; 2024 Mehendi Artistry by Shrija. All rights reserved.</p>
     </footer>
+    <script>
+        // Show nav only at the top
+        const navbar = document.getElementById("navbar");
 
+        window.addEventListener("scroll", () => {
+            if (window.scrollY === 0) {
+                navbar.style.display = "block"; // Show when at the top
+            } else {
+                navbar.style.display = "none"; // Hide on scroll
+            }
+        });
+    </script>
 </body>
 </html>
