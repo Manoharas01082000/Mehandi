@@ -3,42 +3,51 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ffffff; /* Soft white background */
-    color: #333;
+    background-color: #fefaf3; /* Soft white background */
+    color: #4b3621;
     line-height: 1.6;
 }
 
 /* Navigation Bar */
-nav {
-    background: #e0d4c8; /* Light cream color */
-    padding: 10px 0;
+#navbar {
+    background: #8d6e63; /* Mehendi-inspired deep brown */
+    padding: 8px 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: opacity 0.3s ease; /* Smooth transition for hiding/showing */
 }
 
-nav ul {
+#navbar ul {
     list-style-type: none;
     display: flex;
     justify-content: center;
+    margin: 0;
+    padding: 0;
 }
 
-nav ul li {
-    margin: 0 15px;
+#navbar ul li {
+    margin: 0 10px;
 }
 
-nav ul li a {
-    color: #333; /* Dark text color */
+#navbar ul li a {
+    font-size: 0.9em;
+    color: #f4efe6;
     text-decoration: none;
     font-weight: bold;
 }
 
-nav ul li a:hover {
+#navbar ul li a:hover {
     text-decoration: underline;
 }
 
 /* Header Styles */
 header {
     background: url('image_5.jpeg') no-repeat center center/cover; /* Replace with your image path */
-    color: #fff; /* White text for better contrast */
+    color: #fefaf3; /* White text for better contrast */
     padding: 60px 20px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -62,7 +71,7 @@ section {
     margin: 20px auto;
     max-width: 1000px;
     text-align: center;
-    background-color: #f5f5f5; /* Light gray background for sections */
+    background-color: #f9f4e7; /* Light gray background for sections */
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -70,30 +79,37 @@ section {
 /* Gallery Styles */
 #gallery {
     padding: 40px 20px;
-    background: #f7f5f5; /* Light background for the gallery */
+    background: #f7efe4;
+    overflow: hidden; /* Hide the overflow to keep it clean */
+    white-space: nowrap;
 }
 
 .gallery-container {
-    overflow-x: auto; /* Enable horizontal scrolling */
-    white-space: nowrap; /* Prevent line breaks */
-    padding: 10px 0; /* Padding for the gallery */
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .gallery-images {
-    display: inline-block; /* Align images in a single row */
+    display: inline-flex;
+    animation: scroll-left 20s linear infinite; /* Continuous scroll animation */
 }
 
 .gallery-images img {
-    width: 200px; /* Set a fixed width for images */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 15px; /* Space between images */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
-    transition: transform 0.3s ease; /* Smooth transition */
+    width: 200px;
+    height: auto;
+    margin-right: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #a65f46; /* Mehendi-inspired brown border */
 }
 
-.gallery-images img:hover {
-    transform: scale(1.05); /* Slightly enlarge on hover */
+@keyframes scroll-left {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
 }
 
 /* Services Section */
@@ -123,7 +139,7 @@ section {
 }
 
 .social-media a {
-    color: #333; /* Dark text color */
+    color: #6e3b2e; /* Dark text color */
     margin: 0 10px; /* Space between icons */
     font-size: 1.5em; /* Icon size */
     transition: transform 0.3s ease; /* Smooth scale effect */
@@ -138,8 +154,8 @@ section {
 footer {
     text-align: center;
     padding: 20px;
-    background: #e0d4c8; /* Light cream color */
-    color: #333;
+    background: #361209; /* Light cream color */
+    color: #fefaf3;
     position: relative;
     bottom: 0;
     width: 100%;
