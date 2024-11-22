@@ -6,6 +6,74 @@
     <title>Mehendi Art</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Chat Icon */
+        #chatIcon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            z-index: 9999;
+            font-size: 1rem;
+            font-family: Arial, sans-serif;
+        }
+
+        /* WhatsApp Form */
+        #whatsappFormContainer {
+            display: none;
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            width: 350px;
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            z-index: 9999;
+            box-sizing: border-box;
+        }
+
+        /* Doctor Logo */
+        .doctor-logo {
+            display: block;
+            margin: 20px auto 10px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        /* Form Inputs */
+        #whatsappFormContainer input,
+        #whatsappFormContainer textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        #whatsappFormContainer button {
+            width: 100%;
+            padding: 12px;
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    </style>
 </head>
 <body>
 
@@ -89,7 +157,59 @@
             <a href="#" class="fab fa-twitter"></a>
         </div>
     </section>
+    <!-- Chat Icon -->
+    <div id="chatIcon" title="Chat with Our Doctors">Chat with Our Artist</div>
 
+    <!-- WhatsApp Form (Hidden Initially) -->
+    <div id="whatsappFormContainer">
+        <!-- Doctor Logo -->
+        <img src="https://your-website.com/doctor-logo.png" alt="Artist Logo" class="doctor-logo">
+
+        <!-- Form -->
+        <form id="whatsappForm">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+            <textarea id="query" name="query" placeholder="Type your query..." required></textarea>
+            <button type="button" onclick="connectToWhatsApp()">Connect on WhatsApp</button>
+        </form>
+    </div>
+
+    <script>
+        // Toggle visibility of the form
+        const chatIcon = document.getElementById('chatIcon');
+        const formContainer = document.getElementById('whatsappFormContainer');
+
+        // Show form when chat icon is clicked
+        chatIcon.addEventListener('click', () => {
+            formContainer.style.display = 'block';
+        });
+
+        // Close form when clicking outside of it
+        window.addEventListener('click', function(event) {
+            if (event.target === formContainer) {
+                return;
+            }
+            if (event.target !== chatIcon && !formContainer.contains(event.target)) {
+                formContainer.style.display = 'none';
+            }
+        });
+
+        // Connect to WhatsApp with user details
+        function connectToWhatsApp() {
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const query = document.getElementById('query').value.trim();
+
+            if (name && phone && query) {
+                const message = `Hello, I am ${name}. My phone number is ${phone}. I have the following query: ${query}`;
+                // Correct phone number format for India (with country code 91)
+                const whatsappURL = `https://wa.me/918970573511?text=${encodeURIComponent(message)}`;
+                window.open(whatsappURL, '_blank');
+            } else {
+                alert('Please fill out all fields before connecting.');
+            }
+        }
+    </script>
     <!-- Footer Section -->
     <footer>
         <p>&copy; 2024 Mehendi Artistry by Shrija. All rights reserved.</p>
